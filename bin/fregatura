@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+require = require('esm')(module /*, options*/);
+const argv = require('minimist')(process.argv.slice(2));
+require('../src/cli').cli(argv);

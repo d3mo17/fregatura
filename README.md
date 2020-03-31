@@ -2,7 +2,7 @@
 
 Generates a repayment plan from command line arguments
 
-![alt text](screenshot.png "CLI Screen")
+![Screenshot displays execution in terminal](./screenshot.png "CLI Screen")
 
 
 ## Install
@@ -15,7 +15,7 @@ npm install fregatura
 ## Usage
 
 ```shell
-command: ./fregatura.js [OPTIONS]...
+command: fregatura [OPTIONS]...
 
 Arguments:
   -b, --balance   Balance to start with. Default: 185000
