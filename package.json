@@ -1,6 +1,6 @@
 {
   "name": "fregatura",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Generates a repayment plan from command line arguments",
   "main": "fregatura.js",
   "bin": {
