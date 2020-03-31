@@ -2,17 +2,18 @@
 
 Generates a repayment plan from command line arguments
 
-![Screenshot displays execution in terminal](./screenshot.png "CLI Screen")
-
 
 ## Install
 
 ```sh
-npm install fregatura
+npm i -g fregatura
 ```
 
 
 ## Usage
+
+![Screenshot displays execution in terminal](./screenshot.png "CLI Screen")
+
 
 ```shell
 command: fregatura [OPTIONS]...
