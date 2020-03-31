@@ -1,0 +1,29 @@
+{
+  "name": "fregatura",
+  "version": "1.0.2",
+  "description": "Generates a repayment plan from command line arguments",
+  "main": "fregatura.js",
+  "bin": {
+    "fregatura": "bin/fregatura"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "minimist": "^1.2.5",
+    "moment": "^2.24.0",
+    "string.prototype.padstart": "^3.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "repayment",
+    "plan",
+    "calculate",
+    "credit",
+    "balance"
+  ],
+  "author": "Daniel Moritz",
+  "license": "MIT"
+}
