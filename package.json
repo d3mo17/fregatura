@@ -25,5 +25,13 @@
     "balance"
   ],
   "author": "Daniel Moritz",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rekrut/fregatura.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rekrut/fregatura/issues"
+  },
+  "homepage": "https://github.com/rekrut/fregatura#readme"
 }
