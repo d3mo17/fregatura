@@ -8,7 +8,7 @@ const padStart = require('string.prototype.padstart')
  * @param {object} argv 
  */
 export function cli(argv) {
-	if (argv['v'] || argv['h'] || argv['help']) {
+	if (argv['v'] || argv['version'] || argv['h'] || argv['help']) {
 		var pjson = require('../package.json');
 		console.log('');
 		console.log(pjson.name + ' v' + pjson.version);
@@ -21,20 +21,29 @@ export function cli(argv) {
 		console.log(pjson.description);
 		console.log('');
 		console.log('Arguments:');
-		console.log('  -b, --balance   Balance to start with. Default: 185000');
-		console.log('  -c, --currency  Currency, default: €');
-		console.log('  -f, --from      Date from which to start (format: "YYYY-MM-DD", default: [today])');
-		console.log('  -h, --help      This help text');
-		console.log('  -i, --interest  Interest in percent per annum. Default: 2.5');
-		console.log('  -r, --rate      Fixed rate to pay monthly. Default: 750');
-		console.log('  -t, --to        Date to end (format: "YYYY-MM-DD", default: [current year] + 100)');
+		console.log('  -b, --balance        Balance to start with. Default: 185000');
+		console.log('  -c, --currency       Currency, default: €');
+		console.log('  -f, --from           Date from which to start (format: "YYYY-MM-DD", default: [today])');
+		console.log('  -h, --help           This help text');
+		console.log('  -i, --interest       Interest in percent per annum. Default: 2.5');
+		console.log('  -p, --repaymentRate  Initial repayment rate in percent. No Default');
+		console.log('  -r, --rate           Fixed rate to pay monthly. Default: 750');
+		console.log('  -t, --to             Date to end (format: "YYYY-MM-DD", default: [current year] + 100)');
+		console.log('  -v, --version        Output version number');
 	}
 	
-	(argv['v'] || argv['h'] || argv['help']) && process.exit()
+	(argv['v'] || argv['version'] || argv['h'] || argv['help']) && process.exit()
 
 	let balance       = argv['b'] || argv['balance'] || 185000;
-	let fixedInterest = argv['i'] || argv['interest'] ||2.5;
-	let fixedRate     = argv['r'] || argv['rate'] || 750;
+	let fixedInterest = argv['i'] || argv['interest'] || 2.5;
+	let repaymentRate = argv['p'] || argv['repaymentRate'];
+	let fixedRate;
+	if (repaymentRate) {
+		fixedRate = (balance * (repaymentRate + fixedInterest) / 100 / 12).toFixed(2)
+	} else {
+		fixedRate = argv['r'] || argv['rate'] || 750;
+		repaymentRate = (fixedRate * 12 * 100 / balance) - fixedInterest
+	}
 	let currency      = argv['c'] || argv['currency'] ||'€';
 	
 	let from = argv['f'] || argv['from']
@@ -62,7 +71,9 @@ export function cli(argv) {
 	console.log(chalk['bgBlue'].white.bold([
 		padStart('', 25),
 		padStart(fixedInterest + '% per annum', 17),
-		padStart('', 42)
+		padStart('', 11),
+		padStart('init. ' + repaymentRate.toFixed(2) + '%', 12),
+		padStart('', 17),
 	].join(' ')));
 	
 	/**
@@ -111,7 +122,7 @@ export function cli(argv) {
 				' '
 			].join(' ')));
 			
-			if (newBalance === 0 ) {
+			if (newBalance === 0) {
 				break;
 			}
 	

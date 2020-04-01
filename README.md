@@ -12,21 +12,9 @@ npm i -g fregatura
 
 ## Usage
 
-![Screenshot displays execution in terminal](./screenshot.png "CLI Screen")
+![Screenshot displays help-text in terminal](./command.png "CLI command usage")
 
-
-```shell
-command: fregatura [OPTIONS]...
-
-Arguments:
-  -b, --balance   Balance to start with. Default: 185000
-  -c, --currency  Currency, default: €
-  -f, --from      Date from which to start (format: "YYYY-MM-DD", default: [today])
-  -h, --help      This help text
-  -i, --interest  Interest in percent per annum. Default: 2.5
-  -r, --rate      Fixed rate to pay monthly. Default: 750
-  -t, --to        Date to end (format: "YYYY-MM-DD", default: [current year] + 100)
-```
+![Screenshot displays execution in terminal](./screenshot.png "CLI Screen output example")
 
 
 ## License
