@@ -34,7 +34,7 @@ export function cli(argv) {
 	
 	(argv['v'] || argv['version'] || argv['h'] || argv['help']) && process.exit()
 
-	let balance       = argv['b'] || argv['balance'] || 185000;
+	let balance = argv['b'] || argv['balance'] || 185000;
 	let fixedInterest = argv['i'] || argv['interest'] || 2.5;
 	let repaymentRate = argv['p'] || argv['repaymentRate'];
 	let fixedRate;
@@ -44,7 +44,7 @@ export function cli(argv) {
 		fixedRate = argv['r'] || argv['rate'] || 750;
 		repaymentRate = (fixedRate * 12 * 100 / balance) - fixedInterest
 	}
-	let currency      = argv['c'] || argv['currency'] ||'€';
+	let currency = argv['c'] || argv['currency'] ||'€';
 	
 	let from = argv['f'] || argv['from']
 		? moment(argv['f'] || argv['from'])
@@ -61,19 +61,19 @@ export function cli(argv) {
 	console.log(chalk['bgBlue'].white.bold([
 		' ',
 		padStart('Date', 8),
-		padStart('Balance', 14),
+		padStart('Balance', 15),
 		padStart('Interest Rate', 17),
-		padStart('Repayment', 11),
+		padStart('Repayment', 12),
 		padStart('Fixed Rate', 12),
-		padStart('New Balance', 15),
+		padStart('New Balance', 16),
 		' '
 	].join(' ')));
 	console.log(chalk['bgBlue'].white.bold([
-		padStart('', 25),
+		padStart('', 26),
 		padStart(fixedInterest + '% per annum', 17),
-		padStart('', 11),
+		padStart('', 12),
 		padStart('init. ' + repaymentRate.toFixed(2) + '%', 12),
-		padStart('', 17),
+		padStart('', 18),
 	].join(' ')));
 	
 	/**
@@ -110,15 +110,15 @@ export function cli(argv) {
 				newBalance = parseFloat(balance.toFixed(2) - repayment).toFixed(2);
 			}
 	
-			console.log(fontThickness[bgColor][color](padStart('', 86)));
+			console.log(fontThickness[bgColor][color](padStart('', 89)));
 			console.log(fontThickness[bgColor][color]([
 				' ',
 				padStart(from.format('MMM YYYY'), 8),
-				padStart(numberFormat(balance.toFixed(2)) + ' ' + currency, 14),
+				padStart(numberFormat(balance.toFixed(2)) + ' ' + currency, 15),
 				padStart(numberFormat(interestSumMonth.toFixed(2)) + ' ' + currency, 17),
-				padStart(numberFormat(repayment) + ' ' + currency, 11),
+				padStart(numberFormat(repayment) + ' ' + currency, 12),
 				padStart(numberFormat(fixedRate) + ' ' + currency, 12),
-				padStart(numberFormat(newBalance) + ' ' + currency, 15),
+				padStart(numberFormat(newBalance) + ' ' + currency, 16),
 				' '
 			].join(' ')));
 			
