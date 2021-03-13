@@ -31,10 +31,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rekrut/fregatura.git"
+    "url": "git+https://github.com/d3mo17/fregatura.git"
   },
   "bugs": {
-    "url": "https://github.com/rekrut/fregatura/issues"
+    "url": "https://github.com/d3mo17/fregatura/issues"
   },
-  "homepage": "https://github.com/rekrut/fregatura#readme"
+  "homepage": "https://github.com/d3mo17/fregatura#readme"
 }
